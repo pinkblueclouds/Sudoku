@@ -1,5 +1,25 @@
 public class One extends Number {
-  public void paintComponent(){
+  
+  private int xCoord;
+  private int yCoord;
+  
+  public One(){
+    xCoord = (this.getX() + this.getWidth())/2 + this.getX();
+    yCoord = (this.getY() + this.getHeight())/4 + this.getY();
+  }
+  
+  //paint
+  public void paintComponent(Graphics g){
     super.paintComponent();
+    
+    //draw the number 1
+    g.setColor(Color.BLACK);
+    g.drawLine(xCoord, yCoord, xCoord - 5, yCoord + 7);
+    g.drawLine(xCoord, yCoord, xCoord, yCoord + this.getHeight()/2);
+  }
+  
+  //value of this square
+  public int getValue(){
+    return 1;
   }
 }
