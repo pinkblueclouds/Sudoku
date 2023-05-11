@@ -1,4 +1,7 @@
 public class Number extends Square {
   public abstract int getValue();
   
+  public void paintComponent(){
+    super.paintComponent();
+  }
 }
