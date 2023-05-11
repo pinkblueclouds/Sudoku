@@ -19,6 +19,7 @@ public class One extends Number {
     g.setColor(color);
     g.drawLine(xCoord, yCoord, xCoord - 5, yCoord + 7);
     g.drawLine(xCoord, yCoord, xCoord, yCoord + this.getHeight()/2);
+    g.drawLine(xCoord - this.getWidth()/4, yCoord + this.getHeight()/2, xCoord + this.getWidth()/4, yCoord + this.getHeight()/2);
   }
   
   //value of this square
