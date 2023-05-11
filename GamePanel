@@ -1,0 +1,10 @@
+import java.awt.*;
+
+public class GamePanel extends JPanel {
+  
+  public GamePanel(InputPanel IPanel){
+    
+    this.setLayout(new BorderLayout());
+    this.add(IPanel, BorderLayout.BOTTOM);
+  }
+}
