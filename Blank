@@ -1,0 +1,22 @@
+import java.awt.*;
+import java.swing.*;
+
+public class Blank implements Square, JPanel {
+  private int x;
+  private int y;
+  
+  public Blank(int x, int y){
+    this.x = x;
+    this.y = y;
+  }
+  
+  public void paintComponent(){
+    this.setBackground(Color.WHITE);
+    this.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+  }
+  
+  public void draw(){
+    
+    
+  }
+}
