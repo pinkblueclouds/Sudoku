@@ -3,11 +3,21 @@ public class Number extends Square {
   private int xCoord;
   private int yCoord;
   
-  public Number(int
+  public Number(int x, int y){
+    xCoord = x;
+    yCoord = y;
+  }
   
   public abstract int getValue();
   
   public void paintComponent(){
     super.paintComponent();
+  }
+  
+  public int getX(){
+    return xCoord;
+  }
+  public int getY(){
+    return yCoord;
   }
 }
