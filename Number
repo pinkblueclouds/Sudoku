@@ -2,7 +2,9 @@ public class Number extends Square {
   
   private int xCoord;
   private int yCoord;
-
+  
+  public Number(int
+  
   public abstract int getValue();
   
   public void paintComponent(){
