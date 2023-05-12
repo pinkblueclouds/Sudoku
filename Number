@@ -1,4 +1,8 @@
 public class Number extends Square {
+  
+  private int xCoord;
+  private int yCoord;
+
   public abstract int getValue();
   
   public void paintComponent(){
