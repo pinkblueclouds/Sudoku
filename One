@@ -15,11 +15,15 @@ public class One extends Number {
   public void paintComponent(Graphics g){
     super.paintComponent();
     
+    //thicker lines
+    Graphics2D g2 = (Graphics2D) g;
+    g2.setStroke(new BasicStroke(3));
+    
     //draw the number 1
-    g.setColor(color);
-    g.drawLine(xCoord, yCoord, xCoord - 5, yCoord + 7);
-    g.drawLine(xCoord, yCoord, xCoord, yCoord + this.getHeight()/2);
-    g.drawLine(xCoord - this.getWidth()/4, yCoord + this.getHeight()/2, xCoord + this.getWidth()/4, yCoord + this.getHeight()/2);
+    g2.setColor(color);
+    g2.draw(new Line2D.Float(xCoord, yCoord, xCoord - 5, yCoord + 7));
+    g2.draw(new Line2D.Float(xCoord, yCoord, xCoord, yCoord + this.getHeight()/2));
+    g2.draw(new Line2D.Float(xCoord - this.getWidth()/4, yCoord + this.getHeight()/2, xCoord + this.getWidth()/4, yCoord + this.getHeight()/2));
   }
   
   //value of this square
