@@ -1,7 +1,10 @@
+import java.awt.*;
+
 public class Number extends Square {
   
   private int xCoord;
   private int yCoord;
+  private Color color
   
   public Number(int x, int y){
     xCoord = x;
@@ -19,5 +22,12 @@ public class Number extends Square {
   }
   public int getY(){
     return yCoord;
+  }
+  
+  public void setColor(Color c){
+    color = c;
+  }
+  public Color getColor(){
+    return color;
   }
 }
