@@ -1,0 +1,26 @@
+public class Three extends Number {
+  
+  public Three(){
+    super(this.getX() + this.getWidth()/4, this.getY() + this.getHeight()*2/5);
+  }
+  
+  public void paintComponent(Graphics g){
+    super.paintComponent(g);
+    
+    //thicker lines
+    Graphics2D g2 = (Graphics2D)g;
+    g2.setStroke(new BasicStroke(3));
+    
+    g2.setColor(super.getColor());
+    g2.draw(new Line.Float(super.getXCoord(), super.getYCoord(), super.getXCoord() + getWidth()/4, super.getYCoord();
+    g2.drawArc(super.getXCoord()+ getWidth()/4, super.getYCoord(), this.getWidth()/2, this.getHeight()/5, 85, 180);
+    
+    
+    
+  }
+  
+  public int getValue(){
+    return 3;
+  }
+  
+}
