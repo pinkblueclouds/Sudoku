@@ -1,12 +1,24 @@
 public class Two extends Number {
   
   public Two(){
-    super(this.getX(), this.getY());
+    super(this.getX() + this.getWidth()/4, this.getY()+this.getHeight*2/5);
   }
   
   public void paintComponent(Graphics g){
     super.paintComponent(g);
     
+    //thicker lines
+    Graphics2D g2 = (Graphics2D)g;
+    g2.setStroke(new BasicStroke(3));
+    
+    g2.setColor(super.getColor());    
+    g2.drawArc(super.getXCoord(), super.getYCoord(), this.getWidth()/2, this.getHeight()/5, 85, 180);
+    g2.draw(new Line.Float(super.getXCoord() + getWidth()/2, super.getYCoord(), super.getXCoord(), super.getYCoord() + this.getHeight()*2/5));
+    g2.draw(new Line.Float(super.getXCoord(), super.getYCoord() + getHeight()*4/5, super.getXCoord() + getWidth()/2; super.getYCoord() + getHeight()*4/5));
+  }
+  
+  public int getValue(){
+    return 2;
   }
   
 }
