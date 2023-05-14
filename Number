@@ -17,10 +17,10 @@ public class Number extends Square {
     super.paintComponent();
   }
   
-  public int getX(){
+  public int getXCoord(){
     return xCoord;
   }
-  public int getY(){
+  public int getYCoord(){
     return yCoord;
   }
   
