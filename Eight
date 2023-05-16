@@ -1,0 +1,7 @@
+public class Eight extends Number {
+
+  public Eight(){
+    super(this.getX() + getWidth()/2, this.getY() + getHeight()/5);
+  }
+
+}
