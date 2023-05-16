@@ -1,4 +1,4 @@
-public class Board {
+public class Board extends JPanel{
   
   private Square[][] board;
   private Square[][] answers = new Square[3][3];
@@ -11,7 +11,10 @@ public class Board {
     //randomly pick one and set values
   }
   
-  
+  public void paintComponent(Graphics g){
+    JPanel squares = new JPanel("Board");
+    squares.setLayout(new GridLayout(9,9));
+  }
   
 
 }
