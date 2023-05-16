@@ -1,7 +1,7 @@
 public class Six extends Number {
   
   public Six(){
-    super(this.getX() + getWidth())
+    super();
   }
   
 }
