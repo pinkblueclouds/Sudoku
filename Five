@@ -1,0 +1,7 @@
+public class Five extends Number {
+  
+  public Five(){
+    super(this.getX() + this.getWidth()/4, this.getY() + this.getHeight()/5);
+  }
+  
+}
