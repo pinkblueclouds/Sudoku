@@ -11,6 +11,11 @@ public class Number extends Square {
     yCoord = y;
   }
   
+  public Number(){
+    xCoord = getX() + getWidth()/4;
+    yCoord = getY() + getHeight()/5;
+  }
+  
   public abstract int getValue();
   
   public void paintComponent(){
