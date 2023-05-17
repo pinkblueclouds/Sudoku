@@ -1,7 +1,0 @@
-public class Nine extends Number {
-
-  public Nine {
-    super();
-  }
-
-}
