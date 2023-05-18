@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.Math;
+import java.util.Arrays;
 
 public class Board extends JPanel{
   
@@ -9,16 +10,58 @@ public class Board extends JPanel{
   public Square(){
     board = new Square[9][9];
     
-    //initilize board
+  }
+  
+  
+  //initilize board
+  public void setBoard(){
     //read file and split into the different boards and answers
+    ArrayList<String> possibleMaps = new ArrayList<String>();
+    ArrayList<String> correspondingAnswers = new ArrayList<String>();
+    
+    //read file
+    TextIO.readFile("ReadMe");
+    for(int i = 1; i <= 4; i++){
+      //separates maps and answer keys
+      if( i % 2 == 1){ possibleMaps.add(TextIO.getlnString()); }
+      else { correspondingAnswers.add(TextIO.getlnString()); }
+    }
+    
+    if (possibleMaps.size() != correspondingAnswers.size()){
+      System.out.println("File is missing information");
+      System.exit;
+    }
+    
     //randomly pick one and set values
-    int random = (int)(Math.random()*2);
+    int random = (int)(Math.random()*possibleMaps.size());
     //map from textfile 
-    String map = 
+    String map = possibleMaps.get(random);
     
     //placement
     int place = 0;
-    
+    for(int r = 0; r < 9; r++){
+      for (int c = 0; c < 9; c++){
+        
+      }
+    }
+  }
+  
+  public Square turnValueToSquare(int value){
+    switch(value){
+      case 1:
+        return new One();
+      case 2:
+        return new Two();
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 9:
+      default:
+        return new Square();
+    }
   }
   
   public void paintComponent(Graphics g){
