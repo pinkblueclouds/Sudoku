@@ -53,12 +53,19 @@ public class Board extends JPanel{
       case 2:
         return new Two();
       case 3:
+        return new Three();
       case 4:
+        return new Four();
       case 5:
+        return new Five();
       case 6:
+        return new Six();
       case 7:
+        return new Seven();
       case 8:
+        return new Eight();
       case 9:
+        return new Nine();
       default:
         return new Square();
     }
