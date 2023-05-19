@@ -41,30 +41,30 @@ public class Board extends JPanel{
     int place = 0;
     for(int r = 0; r < 9; r++){
       for (int c = 0; c < 9; c++){
-        
+        board[r][c] = turnValueToSquare(map.substring(place,place+1));
       }
     }
   }
   
-  public Square turnValueToSquare(int value){
+  public Square turnValueToSquare(String value){
     switch(value){
-      case 1:
+      case "1":
         return new One();
-      case 2:
+      case "2":
         return new Two();
-      case 3:
+      case "3":
         return new Three();
-      case 4:
+      case "4":
         return new Four();
-      case 5:
+      case "5":
         return new Five();
-      case 6:
+      case "6":
         return new Six();
-      case 7:
+      case "7":
         return new Seven();
-      case 8:
+      case "8":
         return new Eight();
-      case 9:
+      case "9":
         return new Nine();
       default:
         return new Square();
@@ -73,8 +73,25 @@ public class Board extends JPanel{
   
   public void paintComponent(Graphics g){
     JPanel squares = new JPanel("Board");
-    squares.setLayout(new GridLayout(9,9));
+    squares.setLayout(new GridLayout(11,11));
+    
+    for (int r = 0; r < 9; r++){
+      for (int c = 0; c < 9; c++){
+        //set panel square to square from board
+        if (c == 2 || c == 5){
+          //add a thick vertical line
+        }
+      }
+      if (r == 2 || r == 5) { 
+         //add a thick line
+      }
+    }
   }
   
+  public void setValue(int r, int c, int value, boolean correct){
+    board[r][c] = turnValueToSquare(String.valueOf(value));
+    if (!correct) { board[r][c].setColor(Color.RED);}
+    else { board[r][c].setColor(Color.BLACK); }
+  }
 
 }
