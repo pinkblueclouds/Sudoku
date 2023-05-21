@@ -9,7 +9,7 @@ public class Board extends JPanel{
   
   public Square(){
     board = new Square[9][9];
-    
+    setBoard();
   }
   
   
@@ -44,6 +44,7 @@ public class Board extends JPanel{
         board[r][c] = turnValueToSquare(map.substring(place,place+1));
       }
     }
+    this.repaint();
   }
   
   public Square turnValueToSquare(String value){
@@ -78,14 +79,21 @@ public class Board extends JPanel{
     for (int r = 0; r < 9; r++){
       for (int c = 0; c < 9; c++){
         //set panel square to square from board
-        if (c == 2 || c == 5){
-          //add a thick vertical line
-        }
+       
       }
-      if (r == 2 || r == 5) { 
-         //add a thick line
-      }
+      
     }
+    //make the 3x3 squares
+    Graphics2D g2 = (Graphics2D)g;
+    g2.setStroke(new BasicStroke(5));
+    //left column
+    g2.draw(new Line.Float(this.getX()+this.getWidth()/3, this.getY(), this.getX()+this.getWidth()/3, this.getY()+this.getHeight()));
+    //right column
+    g2.draw(new Line.Float(this.getX()+this.getWidth()*2/3, this.getY(), this.getX()+this.getWidth()*2/3, this.getY()+this.getHeight()));
+    //top row
+    g2.draw(new Line.Float(this.getX(), this.getY()+this.getHeight()/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()/3));
+    //bottom row
+    g2.draw(new Line.Float(this.getX(), this.getY()+this.getHeight()*2/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()*2/3));
   }
   
   public void setValue(int r, int c, int value, boolean correct){
