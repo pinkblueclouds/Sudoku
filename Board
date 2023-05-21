@@ -7,7 +7,7 @@ public class Board extends JPanel{
   private Square[][] board;
   private Square[][] answers = new Square[3][3];
   
-  public Square(){
+  public Board(){
     board = new Square[9][9];
     setBoard();
   }
