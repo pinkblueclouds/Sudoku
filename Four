@@ -1,24 +1,27 @@
+import java.awt.*;
+import java.awt.geom.Line2D;
+
 public class Four extends Number {
-  
-  public Four(){
-    super(this.getX() + this.getWidth()/4, this.getY() + this.Height()/4);
-  }
-  
-  public void paintComponent(Graphics g){
-    super.paintComponent(g);
-    
-    //thicker lines
-    Graphics2D g2 = (Graphics2D)g;
-    g2.setStroke(new BasicStroke(3));
-    
-    //draw number
-    g2.draw(new Line.Float(super.getXCoord(), super.getYCoord() + this.getHeight()/4, super.getXCoord() + getWidth()/2, super.getXCoord()));//slant
-    g2.draw(new Line.Float(super.getXCoord() + getWidth()/2, super.getYCoord(), super.getXCoord() + getWidth()/2, super.getYCoord() + getHeight/2));//vertical line
-    g2.draw(new Line.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, super.getXCoord() + getWidth()/2, super.getYCoord() + getHeight()/4));//horizontal
-  }
-  
-  public int getValue(){
-    return 4;
-  }
-  
+
+	public Four(){
+		super(15,4);
+	}
+
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+
+		//thicker lines
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setStroke(new BasicStroke(3));
+
+		//draw number
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, super.getXCoord() + getWidth()/2, super.getXCoord()));//slant
+		g2.draw(new Line2D.Float(super.getXCoord() + getWidth()/2, super.getYCoord(), super.getXCoord() + getWidth()/2, super.getYCoord() + getHeight()/2));//vertical line
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, super.getXCoord() + getWidth()/2, super.getYCoord() + getHeight()/4));//horizontal
+	}
+
+	public int getValue(){
+		return 4;
+	}
+
 }
