@@ -1,32 +1,32 @@
 import java.awt.*;
+import java.awt.geom.Line2D;
 
 public class One extends Number {
-  
-  private Color color = Color.BLACK;
-  
-  public One(){
-    super((this.getX() + this.getWidth())/2 + this.getX(), (this.getY() + this.getHeight())/4 + this.getY());
-  }
-  
-  //paint
-  public void paintComponent(Graphics g){
-    super.paintComponent();
-    
-    //thicker lines
-    Graphics2D g2 = (Graphics2D) g;
-    g2.setStroke(new BasicStroke(3));
-    
-    //draw the number 1
-    g2.setColor(super.getColor());
-    g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord() - 5, super.getYCoord() + 7));
-    g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord() + this.getHeight()/2));
-    g2.draw(new Line2D.Float(super.getXCoord() - this.getWidth()/4, super.getYCoord() + this.getHeight()/2, 
-      super.getXCoord() + this.getWidth()/4, super.getYCoord() + this.getHeight()/2));
-  }
-  
-  //value of this square
-  public int getValue(){
-    return 1;
-  }
- 
+
+
+	public One() {
+		super(10, 4);
+	}
+
+	//paint
+	public void paintComponent(Graphics g){
+		super.paintComponent();
+
+		//thicker lines
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(3));
+
+		//draw the number 1
+		g2.setColor(super.getColor());
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord() - 5, super.getYCoord() + 7));
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord() + 12));
+		g2.draw(new Line2D.Float(super.getXCoord() - 5, super.getYCoord() + 12, super.getXCoord() + 5, super.getYCoord() + 12));
+		
+	}
+
+	//value of this square
+	public int getValue(){
+		return 1;
+	}
+
 }
