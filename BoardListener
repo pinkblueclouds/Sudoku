@@ -1,0 +1,14 @@
+public class BoardListener implements MouseListener {
+    Board boardpanel;
+    public BoardListener(Board panel){
+        boardpanel = panel;
+    }
+    
+    public void MouseClicked(MouseEvent e){
+    }
+    
+    public void MousePressed(MouseEvent e){
+    }
+    
+    public void Mouse
+}
