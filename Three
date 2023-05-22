@@ -1,30 +1,33 @@
+import java.awt.*;
+import java.awt.geom.Line2D;
+
 public class Three extends Number {
-  
-  public Three(){
-    super(this.getX() + this.getWidth()/4, this.getY() + this.getHeight()/5);
-  }
-  
-  public void paintComponent(Graphics g){
-    super.paintComponent(g);
-    
-    //thicker lines
-    Graphics2D g2 = (Graphics2D)g;
-    g2.setStroke(new BasicStroke(3));
-    
-    //holding variables
-    int rightside = super.getXCoord() + getWidth()/2;
-    int bottom = super.getYCoord() + getHeight()*4/5;
-    
-    g2.setColor(super.getColor());
-    g2.draw(new Line.Float(super.getXCoord(), super.getYCoord(), rightside, super.getYCoord())); //top line
-    g2.draw(new Line.Float(rightside, super.getYCoord(), rightside, super.getYCoord() + getHeight()/2)); //vertical line
-    g2.draw(new Line.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, rightside, super.getY() + getHeight()/4)); //middle line
-    g2.draw(new Line.Float(super.getXCoord(), bottom, rightside, bottom)); //bottom line
-    
-  }
-  
-  public int getValue(){
-    return 3;
-  }
-  
+
+	public Three(){
+		super();
+	}
+
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+
+		//thicker lines
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setStroke(new BasicStroke(3));
+
+		//holding variables
+		int rightside = super.getXCoord() + getWidth()/2;
+		int bottom = super.getYCoord() + getHeight()*4/5;
+
+		g2.setColor(super.getColor());
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), rightside, super.getYCoord())); //top line
+		g2.draw(new Line2D.Float(rightside, super.getYCoord(), rightside, super.getYCoord() + getHeight()/2)); //vertical line
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, rightside, super.getY() + getHeight()/4)); //middle line
+		g2.draw(new Line2D.Float(super.getXCoord(), bottom, rightside, bottom)); //bottom line
+
+	}
+
+	public int getValue(){
+		return 3;
+	}
+
 }
