@@ -1,38 +1,45 @@
 import java.awt.*;
 
-public class Number extends Square {
-  
-  private int xCoord;
-  private int yCoord;
-  private Color color
-  
-  public Number(int x, int y){
-    xCoord = x;
-    yCoord = y;
-  }
-  
-  public Number(){
-    xCoord = getX() + getWidth()/4;
-    yCoord = getY() + getHeight()/5;
-  }
-  
-  public abstract int getValue();
-  
-  public void paintComponent(){
-    super.paintComponent();
-  }
-  
-  public int getXCoord(){
-    return xCoord;
-  }
-  public int getYCoord(){
-    return yCoord;
-  }
-  
-  public void setColor(Color c){
-    color = c;
-  }
-  public Color getColor(){
-    return color;
-  }
+public abstract class Number extends Square {
+
+	private int xCoord;
+	private int yCoord;
+	private Color color = Color.BLACK;
+
+	public Number(int x, int y){
+		xCoord = x;
+		yCoord = y;
+	}
+
+	public Number(){
+		xCoord = getX() + getWidth()/4;
+		yCoord = getY() + getHeight()/5;
+	}
+
+	public abstract int getValue();
+
+	public void paintComponent(){
+		super.paintComponent();
+	}
+
+	public int getXCoord(){
+		return xCoord;
+	}
+	public int getYCoord(){
+		return yCoord;
+	}
+
+	public void setColor(Color c){
+		color = c;
+	}
+	public Color getColor(){
+		return color;
+	}
+	
+	public int getX() {
+		return super.getX();
+	}
+	public int getY() {
+		return super.getY();
+	}
 }
