@@ -1,13 +1,15 @@
 import java.awt.*;
+import java.awt.geom.Line2D;
+
 import javax.swing.*;
 import java.lang.Math;
 import java.util.ArrayList;
 
 public class Board extends JPanel{
 
-	private static final long serialVersionUID = 1L;
 	private Square[][] board;
-	private Square[][] answers = new Square[3][3];
+	private int[][] answers = new int[9][9];
+	private Square currentSquare;
 
 	public Board(){
 		board = new Square[9][9];
@@ -44,6 +46,7 @@ public class Board extends JPanel{
 		for(int r = 0; r < 9; r++){
 			for (int c = 0; c < 9; c++){
 				board[r][c] = turnValueToSquare(map.substring(place,place+1));
+				answers[r][c] = Integer.valueOf(correspondingAnswers.get(random).substring(place,place+1));
 			}
 		}
 		this.repaint();
@@ -76,12 +79,12 @@ public class Board extends JPanel{
 
 	public void paintComponent(Graphics g){
 		JPanel squares = new JPanel();
-		squares.setLayout(new GridLayout(11,11));
+		squares.setLayout(new GridLayout(9,9));
 
 		for (int r = 0; r < 9; r++){
 			for (int c = 0; c < 9; c++){
 				//set panel square to square from board
-
+				squares.add(board[r][c],r,c);
 			}
 
 		}
@@ -89,19 +92,33 @@ public class Board extends JPanel{
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(5));
 		//left column
-		g2.draw(new Line.Float(this.getX()+this.getWidth()/3, this.getY(), this.getX()+this.getWidth()/3, this.getY()+this.getHeight()));
+		g2.draw(new Line2D.Float(this.getX()+this.getWidth()/3, this.getY(), this.getX()+this.getWidth()/3, this.getY()+this.getHeight()));
 		//right column
-		g2.draw(new Line.Float(this.getX()+this.getWidth()*2/3, this.getY(), this.getX()+this.getWidth()*2/3, this.getY()+this.getHeight()));
+		g2.draw(new Line2D.Float(this.getX()+this.getWidth()*2/3, this.getY(), this.getX()+this.getWidth()*2/3, this.getY()+this.getHeight()));
 		//top row
-		g2.draw(new Line.Float(this.getX(), this.getY()+this.getHeight()/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()/3));
+		g2.draw(new Line2D.Float(this.getX(), this.getY()+this.getHeight()/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()/3));
 		//bottom row
-		g2.draw(new Line.Float(this.getX(), this.getY()+this.getHeight()*2/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()*2/3));
+		g2.draw(new Line2D.Float(this.getX(), this.getY()+this.getHeight()*2/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()*2/3));
 	}
 
 	public void setValue(int r, int c, int value, boolean correct){
 		board[r][c] = turnValueToSquare(String.valueOf(value));
 		if (!correct) { board[r][c].setColor(Color.RED);}
 		else { board[r][c].setColor(Color.BLACK); }
+	}
+	
+	public void setCurrentSquare(Square square) {
+		currentSquare = square;
+	}
+	
+	public boolean checkAllCorrect() {
+		for (int r = 0; r < 9; r++) {
+			for (int c = 0; c < 9; c++) {
+				if (board[r][c].getValue() == 0) return false;
+				if (board[r][c].getValue() != answers[r][c]) return false;
+			}
+		}
+		return true;
 	}
 
 }
