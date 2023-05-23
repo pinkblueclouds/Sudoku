@@ -1,14 +1,42 @@
-public class BoardListener implements MouseListener {
-    Board boardpanel;
-    public BoardListener(Board panel){
-        boardpanel = panel;
-    }
-    
-    public void MouseClicked(MouseEvent e){
-    }
-    
-    public void MousePressed(MouseEvent e){
-    }
-    
-    public void Mouse
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class BoardListener implements MouseListener{
+	
+	Board boardpanel;
+	
+	public BoardListener(Board panel) {
+		boardpanel = panel;
+	}
+	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
