@@ -24,4 +24,8 @@ public class Square extends JPanel{
 		return height;
 	}
 	
+	public int getValue(){
+		return 0;
+	}
+	
 }
