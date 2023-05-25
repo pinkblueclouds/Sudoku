@@ -24,7 +24,7 @@ public class Board extends JPanel{
 		ArrayList<String> correspondingAnswers = new ArrayList<String>();
 
 		//read file
-		TextIO.readFile("ReadMe");
+		TextIO.readFile("PuzzleBoards");
 		for(int i = 1; i <= 4; i++){
 			//separates maps and answer keys
 			if( i % 2 == 1){ possibleMaps.add(TextIO.getlnString()); }
@@ -40,54 +40,76 @@ public class Board extends JPanel{
 		int random = (int)(Math.random()*possibleMaps.size());
 		//map from textfile 
 		String map = possibleMaps.get(random);
+		System.out.println(map);
+		System.out.println();
 
 		//placement
 		int place = 0;
 		for(int r = 0; r < 9; r++){
 			for (int c = 0; c < 9; c++){
+				System.out.print(map.substring(place,place+1));
 				board[r][c] = turnValueToSquare(map.substring(place,place+1));
 				answers[r][c] = Integer.valueOf(correspondingAnswers.get(random).substring(place,place+1));
+				place++;
 			}
 		}
+		System.out.println();
+		
+		this.setLayout(new GridLayout(9,9));
+
+		for (int r = 0; r < 9; r++){
+			for (int c = 0; c < 9; c++){
+				//set panel square to square from board
+				this.add(board[r][c],r,c);
+			}
+
+		}
 		this.repaint();
+	}
+	
+	public int[][] getBoard() {
+		return answers;
 	}
 
 	public Square turnValueToSquare(String value){
 		switch(value){
 		case "1":
+			System.out.print("1_");
 			return new One();
 		case "2":
+			System.out.print("2_");
 			return new Two();
 		case "3":
+			System.out.print("3_");
 			return new Three();
 		case "4":
+			System.out.print("4_");
 			return new Four();
 		case "5":
+			System.out.print("5_");
 			return new Five();
 		case "6":
+			System.out.print("6_");
 			return new Six();
 		case "7":
+			System.out.print("7_");
 			return new Seven();
 		case "8":
+			System.out.print("8_");
 			return new Eight();
 		case "9":
+			System.out.print("9_");
 			return new Nine();
 		default:
+			System.out.print(" ");
 			return new Square();
 		}
 	}
 
 	public void paintComponent(Graphics g){
-		JPanel squares = new JPanel();
-		squares.setLayout(new GridLayout(9,9));
 
-		for (int r = 0; r < 9; r++){
-			for (int c = 0; c < 9; c++){
-				//set panel square to square from board
-				squares.add(board[r][c],r,c);
-			}
-
-		}
+		/*
+		
 		//make the 3x3 squares
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(5));
@@ -99,12 +121,21 @@ public class Board extends JPanel{
 		g2.draw(new Line2D.Float(this.getX(), this.getY()+this.getHeight()/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()/3));
 		//bottom row
 		g2.draw(new Line2D.Float(this.getX(), this.getY()+this.getHeight()*2/3, this.getX()+this.getWidth(), this.getY()+this.getHeight()*2/3));
+	
+		*/
+		
+		
+		
 	}
 
 	public void setValue(int r, int c, int value, boolean correct){
 		board[r][c] = turnValueToSquare(String.valueOf(value));
-		if (!correct) { board[r][c].setColor(Color.RED);}
-		else { board[r][c].setColor(Color.BLACK); }
+		if (!correct) { 
+			((Number)board[r][c]).setColor(Color.RED);
+		}
+		else { 
+			((Number)board[r][c]).setColor(Color.BLACK);
+		}
 	}
 	
 	public void setCurrentSquare(Square square) {
@@ -121,11 +152,12 @@ public class Board extends JPanel{
 		return true;
 	}
 	
-	public boolean contains(int x, int y){
-		if(x > 0 && x < 180 & y  > 0 && y < 180){
-			return true;
-		}
-		return false;
+	public Square containsPoint(int x, int y) {
+		int r = x/50;
+		int c = y/50;
+		return board[r][c];
 	}
+	
+	//can you edit that square (is it not one of the original squares)
 
 }
