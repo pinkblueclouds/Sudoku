@@ -4,7 +4,7 @@ import java.awt.geom.Line2D;
 public class Four extends Number {
 
 	public Four(){
-		super(15,4);
+		super(35,10);
 	}
 
 	public void paintComponent(Graphics g){
@@ -13,9 +13,11 @@ public class Four extends Number {
 		//thicker lines
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(3));
+		
+		g2.setColor(super.getColor());
 
 		//draw number
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, super.getXCoord() + getWidth()/2, super.getXCoord()));//slant
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, super.getXCoord() + getWidth()/2, super.getYCoord()));//slant
 		g2.draw(new Line2D.Float(super.getXCoord() + getWidth()/2, super.getYCoord(), super.getXCoord() + getWidth()/2, super.getYCoord() + getHeight()/2));//vertical line
 		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, super.getXCoord() + getWidth()/2, super.getYCoord() + getHeight()/4));//horizontal
 	}
