@@ -1,7 +1,35 @@
+import java.awt.*;
+import java.awt.geom.Line2D;
+
 public class Five extends Number {
-  
-  public Five(){
-    super(this.getX() + this.getWidth()/4, this.getY() + this.getHeight()/5);
-  }
-  
+
+	public Five(){
+		super();
+	}
+
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+
+		//thicker lines
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setStroke(new BasicStroke(3));
+		
+		g2.setColor(super.getColor());
+
+		//draw number
+		
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord()+10, super.getYCoord()));//top line
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord()+6));//left vertical
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+6));//middle horizontal
+		g2.draw(new Line2D.Float(super.getXCoord()+10, super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+12));//right vertical
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+12, super.getXCoord()+10, super.getYCoord()+12));//bottom horizontal
+	}
+	
+	
+	
+	@Override
+	public int getValue() {
+		return 5;
+	}
+
 }
