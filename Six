@@ -1,7 +1,29 @@
-public class Six extends Number {
-  
-  public Six(){
-    super();
-  }
-  
+import java.awt.*;
+import java.awt.geom.Line2D;
+
+public class Six extends Number{
+	
+	
+	public Six() {
+		super();
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
+		//thicker lines
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setStroke(new BasicStroke(3));
+
+		g2.setColor(super.getColor());
+		
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord()+10, super.getYCoord()));//top
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord()+12));//left
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+6));//middle
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+12, super.getXCoord()+10, super.getYCoord()+12));//bottom
+		g2.draw(new Line2D.Float(super.getXCoord()+10, super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+12));//right
+		
+	}
+	
+	public int getValue() { return 6; }
 }
