@@ -4,7 +4,7 @@ import java.awt.geom.Line2D;
 public class Two extends Number {
 
 	public Two(){
-		super(5, 8);
+		super(14, 12);
 	}
 
 	public void paintComponent(Graphics g){
@@ -14,10 +14,12 @@ public class Two extends Number {
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(3));
 
-		g2.setColor(super.getColor());    
-		g2.drawArc(super.getXCoord(), super.getYCoord(), 10, 4, 85, 180);
-		g2.draw(new Line2D.Float(super.getXCoord() + 10, super.getYCoord(), super.getXCoord(), super.getYCoord() + 8));
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + 8, super.getXCoord() + 10, super.getYCoord() + 8));
+		g2.setColor(super.getColor());
+		
+		
+		g2.drawArc(super.getXCoord(), super.getYCoord(), 21, 15, -22, 180);
+		g2.draw(new Line2D.Float(super.getXCoord() + getWidth()*2/5, super.getYCoord()+10, super.getXCoord()+2, getHeight()-13));
+		g2.draw(new Line2D.Float(super.getXCoord()+2, getHeight()-13, getWidth()-15, getHeight()-13));
 	}
 
 	public int getValue(){
