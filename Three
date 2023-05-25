@@ -13,19 +13,20 @@ public class Three extends Number {
 		//thicker lines
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(3));
+		
 
 		//holding variables
-		int rightside = super.getXCoord() + getWidth()/2;
-		int bottom = super.getYCoord() + getHeight()*4/5;
+		int right = super.getXCoord() + getWidth()/3;
 
 		g2.setColor(super.getColor());
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), rightside, super.getYCoord())); //top line
-		g2.draw(new Line2D.Float(rightside, super.getYCoord(), rightside, super.getYCoord() + getHeight()/2)); //vertical line
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord() + getHeight()/4, rightside, super.getY() + getHeight()/4)); //middle line
-		g2.draw(new Line2D.Float(super.getXCoord(), bottom, rightside, bottom)); //bottom line
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), right, super.getYCoord())); //top line
+		g2.draw(new Line2D.Float(right, super.getYCoord(), right, super.getYCoord() + getHeight()*2/5)); //vertical line
+		g2.draw(new Line2D.Float(super.getXCoord(), getHeight()/2, right, getHeight()/2)); //middle line
+		g2.draw(new Line2D.Float(super.getXCoord(), getYCoord() + getHeight()*2/5, right, super.getYCoord() + getHeight()*2/5)); //bottom line
 
 	}
-
+	
+	@Override
 	public int getValue(){
 		return 3;
 	}
