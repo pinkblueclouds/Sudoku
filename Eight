@@ -1,7 +1,21 @@
-public class Eight extends Number {
+import java.awt.*;
 
-  public Eight(){
-    super(this.getX() + getWidth()/2, this.getY() + getHeight()/5);
-  }
 
+public class Eight extends Number{
+	
+	public Eight() {
+		super(10,7);
+	}
+	
+	public void paintComponent(Graphics g) {
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setStroke(new BasicStroke(3));
+		
+		g2.setColor(super.getColor());
+		
+		g2.drawOval(getXCoord(), getYCoord(), 5, 2);
+		g2.drawOval(getXCoord(), getYCoord()+6, 5, 4);
+	}
+	
+	public int getValue() { return 8; }
 }
