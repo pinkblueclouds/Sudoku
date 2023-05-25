@@ -18,8 +18,8 @@ public abstract class Number extends Square {
 
 	public abstract int getValue();
 
-	public void paintComponent(){
-		super.paintComponent();
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
 	}
 
 	public int getXCoord(){
