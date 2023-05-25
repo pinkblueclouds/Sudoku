@@ -1,7 +1,22 @@
-public class Nine extends Number {
+import java.awt.*;
+import java.awt.geom.Line2D;
 
-  public Nine {
-    super();
-  }
-
+public class Nine extends Number{
+	
+	public Nine() {
+		super(10,7);
+	}
+	
+	public void paintComponent(Graphics g) {
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setStroke(new BasicStroke(3));
+		
+		g2.setColor(getColor());
+		
+		g2.drawOval(getXCoord(), getYCoord(), 4, 3);
+		g2.draw(new Line2D.Float(getXCoord()+4,getYCoord(),getXCoord(),getYCoord()+8));
+		
+	}
+	
+	public int getValue() { return 9; }
 }
