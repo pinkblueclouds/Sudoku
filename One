@@ -5,7 +5,7 @@ public class One extends Number {
 
 
 	public One() {
-		super(10, 4);
+		super(25, 15);
 	}
 
 	//paint
@@ -18,9 +18,11 @@ public class One extends Number {
 
 		//draw the number 1
 		g2.setColor(super.getColor());
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord() - 5, super.getYCoord() + 7));
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord() + 12));
-		g2.draw(new Line2D.Float(super.getXCoord() - 5, super.getYCoord() + 12, super.getXCoord() + 5, super.getYCoord() + 12));
+		
+		
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord() - getWidth()/5, super.getYCoord() + 4));
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), getHeight()-13));
+		g2.draw(new Line2D.Float(super.getXCoord() - getWidth()/5, getHeight()-13, super.getXCoord() + getWidth()/5, getHeight()-13));
 		
 	}
 
