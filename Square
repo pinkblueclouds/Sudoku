@@ -3,15 +3,16 @@ import java.awt.Color;
 
 public class Square extends JPanel{
 	
-	private int width = 20;
-	private int height = 20;
+	private int width = 50;
+	private int height = 50;
+	private Color border = Color.BLACK;
 	
 	public Square() {
 	}
 	
 	public void paintComponent(){
 		this.setBackground(Color.WHITE);
-		this.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY,3));
+		this.setBorder(BorderFactory.createLineBorder(border,4));
 	}
 
 
@@ -24,8 +25,11 @@ public class Square extends JPanel{
 		return height;
 	}
 	
-	public int getValue(){
+	public int getValue() {
 		return 0;
 	}
 	
+	public void setBorder(Color c) {
+		border = c;
+	}
 }
