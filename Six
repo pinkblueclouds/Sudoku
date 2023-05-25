@@ -17,11 +17,11 @@ public class Six extends Number{
 
 		g2.setColor(super.getColor());
 		
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord()+10, super.getYCoord()));//top
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord()+12));//left
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+6));//middle
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+12, super.getXCoord()+10, super.getYCoord()+12));//bottom
-		g2.draw(new Line2D.Float(super.getXCoord()+10, super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+12));//right
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), getWidth()-getXCoord(), super.getYCoord()));//top
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), getHeight()-super.getYCoord()));//left
+		g2.draw(new Line2D.Float(super.getXCoord(), getHeight()*2/5, getWidth()-getXCoord(), getHeight()*2/5));//middle
+		g2.draw(new Line2D.Float(super.getXCoord(), getHeight()-getYCoord(), getWidth()-getXCoord(), getHeight()-getYCoord()));//bottom
+		g2.draw(new Line2D.Float(getWidth()-getXCoord(), super.getYCoord()*2/5, getWidth()-getXCoord(), getHeight()-getYCoord()));//right
 		
 	}
 	
