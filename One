@@ -10,7 +10,7 @@ public class One extends Number {
 
 	//paint
 	public void paintComponent(Graphics g){
-		super.paintComponent();
+		super.paintComponent(g);
 
 		//thicker lines
 		Graphics2D g2 = (Graphics2D) g;
