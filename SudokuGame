@@ -1,3 +1,16 @@
-public class SudokuGame {
 
+public class SudokuGame {
+	
+	private Board board;
+	
+	public SudokuGame(Board board) {
+		this.board = board;
+		board.setBoard();
+	}
+	
+	
+	public void play() {
+		
+	}
+	
 }
