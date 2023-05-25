@@ -18,11 +18,11 @@ public class Five extends Number {
 
 		//draw number
 		
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord()+10, super.getYCoord()));//top line
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), super.getYCoord()+6));//left vertical
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+6));//middle horizontal
-		g2.draw(new Line2D.Float(super.getXCoord()+10, super.getYCoord()+6, super.getXCoord()+10, super.getYCoord()+12));//right vertical
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord()+12, super.getXCoord()+10, super.getYCoord()+12));//bottom horizontal
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), getWidth() - getXCoord(), super.getYCoord()));//top line
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord(), getHeight()/2));//left vertical
+		g2.draw(new Line2D.Float(super.getXCoord(), getHeight()/2, getWidth() - getXCoord(), getHeight()/2));//middle horizontal
+		g2.draw(new Line2D.Float(getWidth() - getXCoord(), getHeight()/2, getWidth() - getXCoord(), getHeight()-getYCoord()));//right vertical
+		g2.draw(new Line2D.Float(super.getXCoord(), getHeight()-getYCoord(), getWidth()-getXCoord(), getHeight()-getYCoord()));//bottom horizontal
 	}
 	
 	
