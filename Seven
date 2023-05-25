@@ -5,18 +5,19 @@ import java.awt.geom.Line2D;
 public class Seven extends Number{
 	
 	public Seven() {
-		super(15,4);
+		super(35,4);
 	}
 	
 	public void paintCompoenent(Graphics g) {
+		super.paintComponent(g);
 		
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(3));
 		
 		g2.setColor(super.getColor());
 		
-		g2.draw(new Line2D.Float(super.getXCoord()-10,super.getYCoord(),super.getXCoord(),super.getYCoord()));// -- line
-		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), super.getXCoord()-10, super.getYCoord()+12));//slant
+		g2.draw(new Line2D.Float(getWidth()-getXCoord(),super.getYCoord(),super.getXCoord(),super.getYCoord()));// -- line
+		g2.draw(new Line2D.Float(super.getXCoord(), super.getYCoord(), getWidth()-getXCoord(), super.getYCoord()+12));//slant
 	}
 	
 	public int getValue() { return 7; }
