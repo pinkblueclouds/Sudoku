@@ -1,19 +1,33 @@
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
+import javax.swing.*;
 
-public class BoardListener implements MouseListener{
+public class BoardListener implements MouseListener, ActionListener{
 	
 	Board boardpanel;
 	Square currentSquare;
+	int squareRow = 0;
+	int squareCol = 0;
+	JTextField textfield;
 	
-	public BoardListener(Board panel) {
+	public BoardListener(Board panel, JTextField text) {
 		boardpanel = panel;
+		textfield = text;
 	}
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		currentSquare = boardpanel.containsPoint(e.getX(),e.getY());
+		
+		if (e.getX() > boardpanel.getX() && e.getX() < boardpanel.getX()+boardpanel.getWidth()
+			&&e.getY() > boardpanel.getY() && e.getY() < boardpanel.getY()+boardpanel.getHeight()) {
+			//gets square that is clicked
+			squareRow = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(0,1));
+			squareCol = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(1,2));
+			//currentSquare = boardpanel.getBoard([squareRow][squareCol]);
+			if (currentSquare.getOriginal()) {
+				currentSquare = null;
+			}
+		}
 	}
 
 	@Override
@@ -37,6 +51,34 @@ public class BoardListener implements MouseListener{
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent ev) {
+		if (textfield.getText().equals("") == false) {
+			textfield.selectAll();
+			int number = 0;
+			try {
+				number = Integer.parseInt(textfield.getText());
+			}
+			catch (Exception e) {
+				textfield.setText("Must Enter a Number 1-9");
+				textfield.selectAll();
+			}
+			
+			if (number <= 0) {
+				textfield.setText("Must Enter a Number 1-9");
+				textfield.selectAll();
+			}
+			if (currentSquare == null) {
+				textfield.setText("No Square selected");
+				textfield.selectAll();
+			}
+			else {
+				//set square to number
+			}
+		}
 		
 	}
 
