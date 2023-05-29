@@ -4,17 +4,19 @@ import java.awt.*;
 public class Eight extends Number{
 	
 	public Eight() {
-		super(10,7);
+		super(17,10);
 	}
 	
 	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
 		Graphics2D g2 = (Graphics2D)g;
 		g2.setStroke(new BasicStroke(3));
 		
 		g2.setColor(super.getColor());
 		
-		g2.drawOval(getXCoord(), getYCoord(), 5, 2);
-		g2.drawOval(getXCoord(), getYCoord()+6, 5, 4);
+		g2.drawOval(getXCoord(), getYCoord(), 16, 12);
+		g2.drawOval(getXCoord()-2, getYCoord() + getHeight()/4, 20, 16);
 	}
 	
 	public int getValue() { return 8; }
