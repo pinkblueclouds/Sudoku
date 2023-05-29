@@ -1,0 +1,46 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class GamePanel extends JFrame{
+	
+	Board board;
+	JTextField text;
+	BoardListener listener;
+	
+	
+	public GamePanel() {
+		
+		
+		this.setLayout(new BorderLayout());
+		
+		
+		//board
+		board = new Board();
+		
+		this.add(board,BorderLayout.CENTER);
+		
+		
+		
+		
+		//bottom
+		JPanel bottom = new JPanel();
+		
+		text = new JTextField(10);
+		
+		bottom.add(text);
+		
+		this.add(bottom,BorderLayout.SOUTH);
+		
+		listener = new BoardListener(board,text);
+		
+		board.addMouseListener(listener);
+		text.addActionListener(listener);
+	}
+	
+	
+	//temporary
+	public Board getBoard() { return board; }
+
+}
