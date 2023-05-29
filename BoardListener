@@ -1,9 +1,11 @@
+import java.awt.Color;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class BoardListener implements MouseListener, ActionListener{
 	
 	Board boardpanel;
+	Square prevSquare;
 	Square currentSquare;
 	int squareRow = 0;
 	int squareCol = 0;
@@ -16,17 +18,29 @@ public class BoardListener implements MouseListener, ActionListener{
 	
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
+		 if (prevSquare != null) {
+			 ((Number)prevSquare).setColor(Color.BLACK);
+		 }
 		
 		if (e.getX() > boardpanel.getX() && e.getX() < boardpanel.getX()+boardpanel.getWidth()
 			&&e.getY() > boardpanel.getY() && e.getY() < boardpanel.getY()+boardpanel.getHeight()) {
 			//gets square that is clicked
 			squareRow = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(0,1));
 			squareCol = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(1,2));
-			//currentSquare = boardpanel.getBoard([squareRow][squareCol]);
+			
+			currentSquare = boardpanel.getSquare(squareRow, squareCol);
+			
 			if (currentSquare.getOriginal()) {
 				currentSquare = null;
 			}
+			
+			
+			if (currentSquare instanceof Number && ((Number)currentSquare).getColor()!= Color.RED) {
+				((Number)currentSquare).setColor(Color.BLUE);
+			}
+			boardpanel.repaint();
+			prevSquare = currentSquare;
 		}
 	}
 
@@ -76,7 +90,12 @@ public class BoardListener implements MouseListener, ActionListener{
 				textfield.selectAll();
 			}
 			else {
-				//set square to number
+				boardpanel.setValue(squareRow, squareCol, number);
+				if (boardpanel.checkSquareCorrect(squareRow, squareCol)) {
+					((Number)currentSquare).setColor(Color.RED);
+				}
+				else ((Number)currentSquare).setColor(Color.BLACK);
+				boardpanel.repaint();
 			}
 		}
 		
