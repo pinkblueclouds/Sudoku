@@ -1,0 +1,22 @@
+import javax.swing.*;
+import java.awt.*;
+
+
+public class GamePanelMain{
+	public static void main (String[] args) {
+		
+
+		GamePanel window = new GamePanel();
+		window.setSize(450,450);
+		window.setLocation(300,100);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	 	
+		
+		
+		window.setResizable(false);
+		
+		window.setVisible(true);
+
+	}
+}
