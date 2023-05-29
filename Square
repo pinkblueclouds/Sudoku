@@ -1,5 +1,5 @@
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
 
 public class Square extends JPanel{
 	
@@ -7,12 +7,15 @@ public class Square extends JPanel{
 	private int height = 50;
 	private Color border = Color.BLACK;
 	
+	//did it originally hold a number, part of the board
+	private boolean original = false;
+	
 	public Square() {
 	}
 	
-	public void paintComponent(){
+	public void paintComponent(Graphics g){
 		this.setBackground(Color.WHITE);
-		this.setBorder(BorderFactory.createLineBorder(border,4));
+		this.setBorder(BorderFactory.createLineBorder(border,1));
 	}
 
 
@@ -31,5 +34,14 @@ public class Square extends JPanel{
 	
 	public void setBorder(Color c) {
 		border = c;
+	}
+	
+	
+	public boolean getOriginal() {
+		return original;
+	}
+	
+	public void setOriginal() {
+		original = true;
 	}
 }
