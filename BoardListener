@@ -26,7 +26,8 @@ public class BoardListener implements MouseListener, ActionListener{
 		if (e.getX() > boardpanel.getX() && e.getX() < boardpanel.getX()+boardpanel.getWidth()
 			&&e.getY() > boardpanel.getY() && e.getY() < boardpanel.getY()+boardpanel.getHeight()) {
 			//gets square that is clicked
-			squareRow = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(0,1));
+			String point = boardpanel.containsPoint(e.getX(), e.getY());
+			squareRow = Integer.valueOf(boardpanel.containsPoint(e.getX(),e.getY()).substring(0,1));
 			squareCol = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(1,2));
 			
 			currentSquare = boardpanel.getSquare(squareRow, squareCol);
