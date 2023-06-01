@@ -19,7 +19,7 @@ public class BoardListener implements MouseListener, ActionListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
-		 if (prevSquare != null) {
+		 if (prevSquare != null && prevSquare instanceof Number) {
 			 ((Number)prevSquare).setColor(Color.BLACK);
 		 }
 		
@@ -27,14 +27,19 @@ public class BoardListener implements MouseListener, ActionListener{
 			&&e.getY() > boardpanel.getY() && e.getY() < boardpanel.getY()+boardpanel.getHeight()) {
 			//gets square that is clicked
 			String point = boardpanel.containsPoint(e.getX(), e.getY());
-			squareRow = Integer.valueOf(boardpanel.containsPoint(e.getX(),e.getY()).substring(0,1));
-			squareCol = Integer.getInteger(boardpanel.containsPoint(e.getX(),e.getY()).substring(1,2));
+			System.out.println(point);
+			System.out.println(point.substring(0,1) + ", " + point.substring(1,2));
+			
+			squareRow = Integer.valueOf(point.substring(0,1));
+			squareCol = Integer.valueOf(point.substring(1,2));
 			
 			currentSquare = boardpanel.getSquare(squareRow, squareCol);
 			
 			if (currentSquare.getOriginal()) {
 				currentSquare = null;
 			}
+			
+			boardpanel.setCurrentSquare(currentSquare);
 			
 			
 			if (currentSquare instanceof Number && ((Number)currentSquare).getColor()!= Color.RED) {
